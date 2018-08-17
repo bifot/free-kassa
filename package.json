@@ -1,0 +1,36 @@
+{
+  "name": "free-kassa",
+  "version": "1.0.0",
+  "description": "Free Kassa (Merchant & Wallet) API.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "eslint": "eslint ./src",
+    "eslint:fix": "eslint ./src --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bifot/free-kassa.git"
+  },
+  "keywords": [
+    "free-kassa",
+    "api",
+    "payments"
+  ],
+  "author": "Mikhail Semin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bifot/free-kassa/issues"
+  },
+  "homepage": "https://github.com/bifot/free-kassa#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "md5": "^2.2.1",
+    "qs": "^6.5.2"
+  },
+  "devDependencies": {
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  }
+}
