@@ -36,6 +36,21 @@ class Merchant {
     ].join(':'))
   }
 
+  async getBalance() {
+    const { data } = await axios.get('/', {
+      params: {
+        merchant_id: this.merchantId,
+        s: md5([
+          this.merchantId,
+          this.secrets[1]
+        ].join('')),
+        action: 'get_balance',
+      },
+    })
+
+    return data
+  }
+
   async sendMoney({ currency, amount }) {
     const { data } = await axios.get('/', {
       params: {
