@@ -1,7 +1,7 @@
-const Cashbox = require('./Cashbox')
+const Merchant = require('./Merchant')
 const Wallet = require('./Wallet')
 
 module.exports = {
-  Cashbox,
+  Merchant,
   Wallet,
 }

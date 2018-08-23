@@ -1,7 +1,7 @@
 const axios = require('axios')
 const md5 = require('md5')
 
-class Cashbox {
+class Merchant {
   constructor(merchantId, secrets) {
     this.merchantId = merchantId
     this.secrets = secrets
@@ -44,4 +44,4 @@ class Cashbox {
   }
 }
 
-module.exports = Cashbox
+module.exports = Merchant
