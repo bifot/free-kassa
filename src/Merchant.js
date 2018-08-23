@@ -51,8 +51,11 @@ class Merchant {
         action: 'get_balance',
       },
     })
+    const { root } = await xml2js.parseString(data)
 
-    return data
+    return Object.entries(root)
+      .map(([key, value]) => ({ [key]: value[0] }))
+      .reduce((a, b) => ({ ...a, ...b }))
   }
 
   async sendMoney({ currency, amount }) {
@@ -68,7 +71,7 @@ class Merchant {
       },
     })
 
-    return await xml2js.parseString(data)
+    return data
   }
 }
 
