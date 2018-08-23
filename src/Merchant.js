@@ -37,7 +37,7 @@ class Merchant {
   }
 
   async getBalance() {
-    const { data } = await axios.get('/', {
+    const { data } = await this.axios.get('/', {
       params: {
         merchant_id: this.merchantId,
         s: md5([
