@@ -1,5 +1,9 @@
 const axios = require('axios')
 const md5 = require('md5')
+const xml2js = require('xml2js')
+const util = require('util')
+
+xml2js.parseString = util.promisify(xml2js.parseString)
 
 class Merchant {
   constructor(merchantId, secrets) {
@@ -64,7 +68,7 @@ class Merchant {
       },
     })
 
-    return data
+    return await xml2js.parseString(data)
   }
 }
 
