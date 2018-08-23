@@ -1,9 +1,6 @@
 const axios = require('axios')
 const md5 = require('md5')
-const xml2js = require('xml2js')
-const util = require('util')
-
-xml2js.parseString = util.promisify(xml2js.parseString)
+const parseXml = require('./utils/parseXml')
 
 class Merchant {
   constructor(merchantId, secrets) {
@@ -51,11 +48,8 @@ class Merchant {
         action: 'get_balance',
       },
     })
-    const { root } = await xml2js.parseString(data)
 
-    return Object.entries(root)
-      .map(([key, value]) => ({ [key]: value[0] }))
-      .reduce((a, b) => ({ ...a, ...b }))
+    return await parseXml(data)
   }
 
   async sendMoney({ currency, amount }) {
@@ -71,7 +65,7 @@ class Merchant {
       },
     })
 
-    return data
+    return await parseXml(data)
   }
 }
 
