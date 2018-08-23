@@ -27,6 +27,15 @@ class Merchant {
     ].join(':'))
   }
 
+  getPaymentSign(orderAmount, orderId) {
+    return md5([
+      this.merchantId,
+      orderAmount,
+      this.secrets[1],
+      orderId,
+    ].join(':'))
+  }
+
   async sendMoney({ currency, amount }) {
     const { data } = await axios.get('/', {
       params: {
