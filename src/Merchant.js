@@ -60,7 +60,7 @@ class Merchant {
         s: md5([
           this.merchantId,
           this.secrets[1],
-        ]).join(''),
+        ].join('')),
         action: 'payment',
       },
     })
