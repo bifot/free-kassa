@@ -57,6 +57,7 @@ class Merchant {
       params: {
         currency,
         amount,
+        merchant_id: this.merchantId,
         s: md5([
           this.merchantId,
           this.secrets[1],
