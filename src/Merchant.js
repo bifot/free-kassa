@@ -53,7 +53,7 @@ class Merchant {
   }
 
   async sendMoney({ currency, amount }) {
-    const { data } = await axios.get('/', {
+    const { data } = await this.axios.get('/', {
       params: {
         currency,
         amount,
