@@ -10,7 +10,9 @@ module.exports = async (xml) => {
     .map(([key, value]) => {
       const array = value.map(item => isNaN(item) ? item : +item)
 
-      return array.length > 1 ? array : array[0]
+      return {
+        [key]: array.length > 1 ? array : array[0]
+      }
     })
     .reduce((a, b) => ({ ...a, ...b }))
 }
